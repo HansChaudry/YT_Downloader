@@ -1,6 +1,7 @@
 <body style="background-color: white; color: black">
 
-<h1 style="text-align: center"><img src="YT-DownloaderLogo.icns" alt="drawing" width="60" height="60"/> YT Video Downloader</h1>
+<h1 align="center"><img src="YT-DownloaderLogo.icns" alt="drawing" width="60" height="60"/> YT Video 
+Downloader</h1>
 
 <p style="color: black; text-align: center"> 
     Desktop application that allows the user to download YouTube videos directly to their computer. 
@@ -18,7 +19,7 @@
     </figcaption>
 </figure>
 
-<h1 style="text-align: center; margin-top:10px">Error Handling</h1>
+<h1 align="center" style="margin-top:10px">Error Handling</h1>
 <figure style="text-align: center">
     <p align="center">
         <img src="images/SC2.png" alt="drawing" width="400"/>
