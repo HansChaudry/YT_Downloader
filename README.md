@@ -18,9 +18,12 @@
     </figcaption>
 </figure>
 
+<h1 style="text-align: center; margin-top:10px">Error Handling</h1>
 <figure style="text-align: center">
-    <p align="center"><img src="images/SC2.png" alt="drawing" width="400"/>
-    <img src="images/SC3.png" alt="drawing" width="400"/></p>
+    <p align="center">
+        <img src="images/SC2.png" alt="drawing" width="400"/>
+        <img src="images/SC3.png" alt="drawing" width="400"/>
+    </p>
     <figcaption>
         When and invalid url is entered a message window will open to notify the user. In addition to invalid URLs, 
         a valid URL may not belong to a YouTube video and a message is also sent in that instance.
