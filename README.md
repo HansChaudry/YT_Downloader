@@ -8,7 +8,7 @@
     back-end.
 </p>
 
-<figure style="text-align: center">
+<figure align="center">
     <img src="images/SC1.png" alt="drawing" width="500"/>
     <figcaption>
         The user inputs the link to the video they wish to download. Then they click on browse, which 
@@ -18,7 +18,7 @@
     </figcaption>
 </figure>
 
-<figure style="text-align: center">
+<figure align="center">
     <img src="images/SC2.png" alt="drawing" width="350"/>
     <img src="images/SC3.png" alt="drawing" width="350"/>
     <figcaption>
