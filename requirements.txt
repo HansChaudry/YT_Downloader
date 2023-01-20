@@ -1,0 +1,15 @@
+astroid==2.13.2
+customtkinter==5.0.3
+darkdetect==0.8.0
+decorator==5.1.1
+dill==0.3.6
+isort==5.11.4
+lazy-object-proxy==1.9.0
+mccabe==0.7.0
+platformdirs==2.6.2
+pylint==2.15.10
+pytube==12.1.2
+tomlkit==0.11.6
+typing_extensions==4.4.0
+validators==0.20.0
+wrapt==1.14.1
