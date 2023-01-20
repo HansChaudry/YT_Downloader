@@ -8,8 +8,8 @@
     back-end.
 </p>
 
-<figure align="center">
-    <img src="images/SC1.png" alt="drawing" width="500"/>
+<figure>
+    <p align="center"><img src="images/SC1.png" alt="drawing" width="500"/></p>
     <figcaption>
         The user inputs the link to the video they wish to download. Then they click on browse, which 
         opens a finder window that allows them to select a directory path to store the MP4 file. Lastly, they 
@@ -18,9 +18,9 @@
     </figcaption>
 </figure>
 
-<figure align="center">
-    <img src="images/SC2.png" alt="drawing" width="350"/>
-    <img src="images/SC3.png" alt="drawing" width="350"/>
+<figure>
+    <p align="center"><img src="images/SC2.png" alt="drawing" width="350"/>
+    <img src="images/SC3.png" alt="drawing" width="350"/></p>
     <figcaption>
         When and invalid url is entered a message window will open to notify the user. In addition to invalid URLs, 
 a valid URL may not belong to a YouTube video and a message is also sent in that instance.
