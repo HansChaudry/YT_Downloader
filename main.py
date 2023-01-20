@@ -65,10 +65,15 @@ class App(customtkinter.CTk):
         vidLink = self.link_entry.get()
 
         if not validators.url(vidLink):
-            print('invalid url')
+            tkinter.messagebox.showinfo(title=None, message="The URL entered is invalid")
         else:
             folder = self.download_path.get()
-            get_video = YouTube(vidLink)
+            try:
+                get_video = YouTube(vidLink)
+            except:
+                tkinter.messagebox.showinfo(title=None, message=("Invalid URL entered. Please make sure that it is a "
+                                                                 "URL to a YouTube video, not a playlist, channel, "
+                                                                 "or the YouTube homepage "))
             get_stream = self.getQualityStream(get_video)
             get_stream.download(folder)
             tkinter.messagebox.showinfo(title=None, message=("Video was successfully downloaded. The file can be found"
