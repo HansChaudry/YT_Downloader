@@ -45,4 +45,11 @@ Clone down this repository. You will need `Python` and `git` installed globally 
 When an invalid url is entered a message window will open to notify the user. In addition to invalid URLs,
 a valid URL may not belong to a YouTube video and a message is also sent in that instance.
 
+## Future Plans
+
+- Option to choose video quality
+- Allow user to download as an mp3
+
+### Thank You For Visiting `!!!`
+
 </body>
