@@ -87,7 +87,7 @@ or path of output directory is invalid
 
 ## Download
 
-<a href="YT_Downloader_Apple_Silicon.dmg" download>Apple Silicon</a>
+[Apple Silicon](YT_Downloader_Apple_Silicon.dmg)
 
 ## Future Plans
 
