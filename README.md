@@ -21,6 +21,7 @@ the path to the file
 2. [Usage](#usage)
 3. [Error Handling](#error-handling)
 4. [Future Plans](#future-plans)
+5. [Download](#download)
 
 ## Getting Started
 
@@ -83,6 +84,10 @@ a valid URL may not belong to a YouTube video and a message is also sent in that
 
 When the YT_Downloader is used through the terminal, messages are outputted to notify the user when the url is invalid,
 or path of output directory is invalid
+
+## Download
+
+<a href="YT_Downloader_Apple_Silicon.dmg" download>Apple Silicon</a>
 
 ## Future Plans
 
