@@ -9,6 +9,7 @@ mccabe==0.7.0
 platformdirs==2.6.2
 pylint==2.15.10
 pytube==15.0.0
+tk==0.1.0
 tomlkit==0.11.6
 typing_extensions==4.4.0
 validators==0.20.0
