@@ -87,7 +87,7 @@ or path of output directory is invalid
 
 ## Download
 
-[Apple Silicon](YT_Downloader_Apple_Silicon.dmg)
+[Apple Silicon](https://github.com/HansChaudry/YT_Downloader/raw/readme/YT_Downloader_Apple_Silicon.dmg)
 
 ## Future Plans
 
