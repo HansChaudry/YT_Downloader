@@ -1,6 +1,6 @@
 <body style="color: white"> 
 
-# <img src="images/YT-DownloaderLogo.icns" alt="drawing" width="60" height="60"/> Youtube Video Downloader
+# <img src="YT-DownloaderLogo.icns" alt="drawing" width="60" height="60"/> Youtube Video Downloader
 
 Desktop/CLI application that allows the user to download YouTube videos directly to their computer.
 Developed with the use of python's front-end libraries tkinter, customtkinter, and with the use pytube on the
