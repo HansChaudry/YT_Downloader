@@ -1,8 +1,8 @@
-<body style="background-color: white; color: black">
+<body style="color: white">
 
 # <img src="YT-DownloaderLogo.icns" alt="drawing" width="60" height="60"/> Youtube Video Downloader
 
-Desktop application that allows the user to download YouTube videos directly to their computer.
+Desktop/CLI application that allows the user to download YouTube videos directly to their computer.
 Developed with the use of python's front-end libraries tkinter, customtkinter, and with the use pytube on the
 back-end.
 
@@ -17,21 +17,65 @@ the path to the file
 
 ## Getting Started
 
-Clone down this repository. You will need `Python` and `git` installed globally on your machine.
+Clone down this repository. You will need <a href="https://www.python.org/downloads/">Python</a> and <a href="https://git-scm.com/">Git</a> installed globally on your machine.
 
-## 🛠 Installation and Setup Instructions
+## Running the Desktop Application
 
-1. Travel to root directory
+Travel to root directory
+<p>Create virtual environment:</p>
 
-2. Create virtual enviorment: `python3 -m venv <env_name>`
+```bash
+$ python3 -m venv <env_name>
+```
 
-3. Avtivate enviorment: `source <env_name>/bin/activate`
+Activate environment: 
+```bash
+$ source <env_name>/bin/activate
+```
 
-4. Install packages: `pip install -r requirements.txt`
+Install packages: 
+```bash
+$ pip install -r requirements.txt
+```
 
-5. Run the project with: `python3 main.py`
+Run the project with:
+```bash
+$ python3 main.py
+```
 
-6. When done, run: `deactivate`
+When done, run: 
+```bash
+$ deactivate
+```
+
+## Using YT_Downloader through the terminal
+
+Travel to root directory
+<p>Create virtual environment:</p>
+
+```bash
+$ python3 -m venv <env_name>
+```
+
+Activate environment: 
+```bash
+$ source <env_name>/bin/activate
+```
+
+Install packages: 
+```bash
+$ pip install -r requirements.txt
+```
+
+Run the project with:
+```bash
+$ python3 main.py <youtube video url> <output directory path> <output name> (optional)
+```
+
+When done, run: 
+```bash
+$ deactivate
+```
 
 ## Error Handling
 
@@ -44,6 +88,12 @@ Clone down this repository. You will need `Python` and `git` installed globally 
 
 When an invalid url is entered a message window will open to notify the user. In addition to invalid URLs,
 a valid URL may not belong to a YouTube video and a message is also sent in that instance.
+
+<img src="images/terminalError1.png" alt="drawing" width=600/>
+<img src="images/terminalError2.png" alt="drawing" width=600/>
+
+When the YT_Downloader is used through the terminal, messages are outputted to notify the user when the url is invalid, or
+path of output directory is invalid
 
 ## Future Plans
 
