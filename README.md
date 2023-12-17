@@ -15,11 +15,18 @@ opens a finder window that allows them to select a directory path to store the M
 clicked on download. Once the download is finished a message window will open to notify them and display
 the path to the file
 
+### Table of Contents
+
+1. [Getting Started](#getting-started)
+2. [Usage](#usage)
+3. [Error Handling](#error-handling)
+4. [Future Plans](#future-plans)
+
 ## Getting Started
 
 Clone down this repository. You will need <a href="https://www.python.org/downloads/">Python</a> and <a href="https://git-scm.com/">Git</a> installed globally on your machine.
 
-## Running the Desktop Application
+## Usage
 
 Travel to root directory
 <p>Create virtual environment:</p>
@@ -38,33 +45,9 @@ Install packages:
 $ pip install -r requirements.txt
 ```
 
-Run the project with:
+If you wish to use the GUI:
 ```bash
 $ python3 main.py
-```
-
-When done, run: 
-```bash
-$ deactivate
-```
-
-## Using YT_Downloader through the terminal
-
-Travel to root directory
-<p>Create virtual environment:</p>
-
-```bash
-$ python3 -m venv <env_name>
-```
-
-Activate environment: 
-```bash
-$ source <env_name>/bin/activate
-```
-
-Install packages: 
-```bash
-$ pip install -r requirements.txt
 ```
 
 Run the project with:
