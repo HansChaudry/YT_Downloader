@@ -6,11 +6,6 @@ from pytube import YouTube
 import sys
 import os
 
-# Modes: "System" (standard), "Dark", "Light"
-customtkinter.set_appearance_mode("System")
-# Themes: "blue" (standard), "green", "dark-blue"
-customtkinter.set_default_color_theme("blue")
-
 
 def verify_cli_args(arguments: tuple):
     if not validators.url(arguments[0]):
@@ -38,6 +33,11 @@ def get_quality_stream(link: YouTube):
 class App(customtkinter.CTk):
     def __init__(self):
         super().__init__()
+
+        # Modes: "System" (standard), "Dark", "Light"
+        customtkinter.set_appearance_mode("System")
+        # Themes: "blue" (standard), "green", "dark-blue"
+        customtkinter.set_default_color_theme("blue")
 
         self.title("YT Downloader")
         self.geometry(f"{600}x{350}")
