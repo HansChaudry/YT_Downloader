@@ -1,6 +1,6 @@
-<body style="color: white">
+<body style="color: white"> 
 
-# <img src="YT-DownloaderLogo.icns" alt="drawing" width="60" height="60"/> Youtube Video Downloader
+# <img src="images/YT-DownloaderLogo.icns" alt="drawing" width="60" height="60"/> Youtube Video Downloader
 
 Desktop/CLI application that allows the user to download YouTube videos directly to their computer.
 Developed with the use of python's front-end libraries tkinter, customtkinter, and with the use pytube on the
@@ -24,7 +24,8 @@ the path to the file
 
 ## Getting Started
 
-Clone down this repository. You will need <a href="https://www.python.org/downloads/">Python</a> and <a href="https://git-scm.com/">Git</a> installed globally on your machine.
+Clone down this repository. You will need <a href="https://www.python.org/downloads/">Python</a>
+and <a href="https://git-scm.com/">Git</a> installed globally on your machine.
 
 ## Usage
 
@@ -35,27 +36,32 @@ Travel to root directory
 $ python3 -m venv <env_name>
 ```
 
-Activate environment: 
+Activate environment:
+
 ```bash
 $ source <env_name>/bin/activate
 ```
 
-Install packages: 
+Install packages:
+
 ```bash
 $ pip install -r requirements.txt
 ```
 
 If you wish to use the GUI:
+
 ```bash
 $ python3 main.py
 ```
 
 Run the project with:
+
 ```bash
 $ python3 main.py <youtube video url> <output directory path> <output name> (optional)
 ```
 
-When done, run: 
+When done, run:
+
 ```bash
 $ deactivate
 ```
@@ -75,8 +81,8 @@ a valid URL may not belong to a YouTube video and a message is also sent in that
 <img src="images/terminalError1.png" alt="drawing" width=600/>
 <img src="images/terminalError2.png" alt="drawing" width=600/>
 
-When the YT_Downloader is used through the terminal, messages are outputted to notify the user when the url is invalid, or
-path of output directory is invalid
+When the YT_Downloader is used through the terminal, messages are outputted to notify the user when the url is invalid,
+or path of output directory is invalid
 
 ## Future Plans
 

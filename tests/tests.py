@@ -15,5 +15,3 @@ def test_youtube_stream():
     get_video = YouTube("https://www.youtube.com/watch?v=9b1rm1eECw8&t=2s")
     result = get_quality_stream(get_video)
     assert result is not None, "Should be not be Empty because the url is valid"
-
-

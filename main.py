@@ -91,7 +91,7 @@ class App(customtkinter.CTk):
                     get_video = YouTube(args[0])
                     get_stream = get_quality_stream(get_video)
                     if args[2] is not None:
-                        video_name = args[2] if "mp4" in args[2] else args[2]+".mp4"
+                        video_name = args[2] if "mp4" in args[2] else args[2] + ".mp4"
                         get_stream.download(output_path=args[1] if args[1] != "." else sys.path[0], filename=video_name)
                     else:
                         get_stream.download(output_path=args[1])
@@ -118,9 +118,10 @@ class App(customtkinter.CTk):
                                                          " at " + self.download_path.get()))
 
                 except:
-                    tkinter.messagebox.showinfo(title=None, message=("Invalid URL entered. Please make sure that it is a "
-                                                                     "URL to a YouTube video, not a playlist, channel, "
-                                                                     "or YouTube homepage "))
+                    tkinter.messagebox.showinfo(title=None,
+                                                message=("Invalid URL entered. Please make sure that it is a "
+                                                         "URL to a YouTube video, not a playlist, channel, "
+                                                         "or YouTube homepage "))
 
 
 if __name__ == "__main__":
