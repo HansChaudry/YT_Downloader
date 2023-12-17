@@ -3,11 +3,36 @@ import tkinter.messagebox
 import customtkinter
 import validators
 from pytube import YouTube
+import sys
+import os
 
 # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_appearance_mode("System")
 # Themes: "blue" (standard), "green", "dark-blue"
 customtkinter.set_default_color_theme("blue")
+
+
+def verify_cli_args(arguments: tuple):
+    if not validators.url(arguments[0]):
+        print("The URL entered is invalid")
+        print("Arguments format: <video url> <directory_path> <output file name>")
+        return False
+
+    if not os.path.isdir(arguments[1]):
+        print("The directory entered is invalid")
+        print("Expected arguments: <video url> <directory_path> <output file name>(optional)")
+        return False
+
+    return True
+
+
+def get_quality_stream(link: YouTube):
+    resolutions = ["1080p", "720p", "480", "360p", "240p"]
+    for resolution in resolutions:
+        streams = link.streams.filter(res=resolution, progressive=True)
+        if len(streams) != 0:
+            return streams.first()
+    return None
 
 
 class App(customtkinter.CTk):
@@ -18,7 +43,7 @@ class App(customtkinter.CTk):
         self.geometry(f"{600}x{350}")
         self.minsize(600, 350)
         self.maxsize(600, 350)
-        self.resizable(0, 0)
+        self.resizable(False, False)
 
         self.grid_columnconfigure(1, weight=1)
         self.grid_columnconfigure((2, 3), weight=0)
@@ -46,46 +71,60 @@ class App(customtkinter.CTk):
                                                  textvariable=self.download_path)
         self.path_entry.place(relx=0.43, rely=0.57, anchor=tkinter.CENTER)
         self.path_btn = customtkinter.CTkButton(master=self.main_frame, width=80, height=30, border_width=0,
-                                                corner_radius=8, text="browse", command=self.browseFolders)
+                                                corner_radius=8, text="browse", command=self.browse_folders)
 
         self.path_btn.place(relx=0.845, rely=0.57, anchor=tkinter.CENTER)
 
         self.download_btn = customtkinter.CTkButton(master=self.main_frame, width=80, height=30, border_width=0,
-                                                    corner_radius=8, text="Download", command=self.downloadVideo)
+                                                    corner_radius=8, text="Download", command=self.download_video)
 
         self.download_btn.place(relx=0.5, rely=0.69, anchor=tkinter.CENTER)
 
-    def browseFolders(self, *args):
+    def browse_folders(self, *args):
         download_dir = tkinter.filedialog.askdirectory()
         self.download_path.set(download_dir)
 
-    def downloadVideo(self, *args):
-        vidLink = self.link_entry.get()
-
-        if not validators.url(vidLink):
-            tkinter.messagebox.showinfo(
-                title=None, message="The URL entered is invalid")
+    def download_video(self, *args):
+        if self is None:
+            if verify_cli_args(arguments=args):
+                try:
+                    get_video = YouTube(args[0])
+                    get_stream = get_quality_stream(get_video)
+                    if args[2] is not None:
+                        video_name = args[2] if "mp4" in args[2] else args[2]+".mp4"
+                        get_stream.download(output_path=args[1], filename=video_name)
+                    else:
+                        get_stream.download(output_path=args[1])
+                    print("Video was successfully downloaded. The file can be found at " + args[1])
+                except:
+                    print("Invalid URL entered. Please make sure that it is a URL to a YouTube video, not a playlist, "
+                          "channel or YouTube homepage ")
+            pass
         else:
-            folder = self.download_path.get()
-            try:
-                get_video = YouTube(vidLink)
-            except:
-                tkinter.messagebox.showinfo(title=None, message=("Invalid URL entered. Please make sure that it is a "
-                                                                 "URL to a YouTube video, not a playlist, channel, "
-                                                                 "or YouTube homepage "))
-            get_stream = self.getQualityStream(get_video)
-            get_stream.download(folder)
-            tkinter.messagebox.showinfo(title=None, message=("Video was successfully downloaded. The file can be found"
-                                                             " at " + self.download_path.get()))
+            vid_link = self.link_entry.get()
 
-    def getQualityStream(self, link: str) -> None:
-        resolutions = ["1080p", "720p", "480", "360p", "240p"]
-        for resolution in resolutions:
-            streams = link.streams.filter(res=resolution, progressive=True)
-            if len(streams) != 0:
-                return streams.first()
+            if not validators.url(vid_link):
+                tkinter.messagebox.showinfo(
+                    title=None, message="The URL entered is invalid")
+            else:
+                folder = self.download_path.get()
+                try:
+                    get_video = YouTube(vid_link)
+                    get_stream = get_quality_stream(get_video)
+                    get_stream.download(folder)
+                    tkinter.messagebox.showinfo(title=None,
+                                                message=("Video was successfully downloaded. The file can be found"
+                                                         " at " + self.download_path.get()))
+
+                except:
+                    tkinter.messagebox.showinfo(title=None, message=("Invalid URL entered. Please make sure that it is a "
+                                                                     "URL to a YouTube video, not a playlist, channel, "
+                                                                     "or YouTube homepage "))
 
 
 if __name__ == "__main__":
-    app = App()
-    app.mainloop()
+    if len(sys.argv) > 1:
+        App.download_video(None, *sys.argv[1:])
+    else:
+        app = App()
+        app.mainloop()
