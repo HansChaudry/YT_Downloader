@@ -1,0 +1,159 @@
+Metadata-Version: 2.1
+Name: YT-Downloader
+Version: 0.0.1
+Summary: CLI tool that allows yu to download a youtube video to a choosen directory
+Home-page: https://github.com/HansChaudry/YT_Downloader
+Author: Hans Chaudry
+Author-email: hanschaudry@outlook.com
+License: <the license you chose>
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: altgraph==0.17.4
+Requires-Dist: astroid==3.0.2
+Requires-Dist: certifi==2023.11.17
+Requires-Dist: charset-normalizer==3.3.2
+Requires-Dist: click==8.1.7
+Requires-Dist: customtkinter==5.2.1
+Requires-Dist: darkdetect==0.8.0
+Requires-Dist: decorator==5.1.1
+Requires-Dist: dill==0.3.7
+Requires-Dist: docutils==0.20.1
+Requires-Dist: idna==3.6
+Requires-Dist: importlib-metadata==7.0.1
+Requires-Dist: iniconfig==2.0.0
+Requires-Dist: isort==5.13.2
+Requires-Dist: jaraco.classes==3.3.0
+Requires-Dist: keyring==24.3.0
+Requires-Dist: lazy-object-proxy==1.10.0
+Requires-Dist: macholib==1.16.3
+Requires-Dist: markdown-it-py==3.0.0
+Requires-Dist: mccabe==0.7.0
+Requires-Dist: mdurl==0.1.2
+Requires-Dist: modulegraph==0.19.6
+Requires-Dist: more-itertools==10.1.0
+Requires-Dist: packaging==23.2
+Requires-Dist: pkginfo==1.9.6
+Requires-Dist: platformdirs==4.1.0
+Requires-Dist: pluggy==1.3.0
+Requires-Dist: py2app==0.28.6
+Requires-Dist: Pygments==2.17.2
+Requires-Dist: pyinstaller==6.3.0
+Requires-Dist: pyinstaller-hooks-contrib==2023.10
+Requires-Dist: pylint==3.0.3
+Requires-Dist: pytest==7.4.3
+Requires-Dist: pytube==15.0.0
+Requires-Dist: readme-renderer==42.0
+Requires-Dist: requests==2.31.0
+Requires-Dist: requests-toolbelt==1.0.0
+Requires-Dist: rfc3986==2.0.0
+Requires-Dist: rich==13.7.0
+Requires-Dist: tk==0.1.0
+Requires-Dist: tomlkit==0.12.3
+Requires-Dist: twine==4.0.2
+Requires-Dist: typing_extensions==4.9.0
+Requires-Dist: urllib3==2.1.0
+Requires-Dist: validators==0.22.0
+Requires-Dist: wrapt==1.16.0
+
+<body style="color: white"> 
+
+# <img src="YT-DownloaderLogo.icns" alt="drawing" width="60" height="60"/> Youtube Video Downloader
+
+Desktop/CLI application that allows the user to download YouTube videos directly to their computer.
+Developed with the use of python's front-end libraries tkinter, customtkinter, and with the use pytube on the
+back-end.
+
+<figure style="text-align: center">
+    <p align="center"><img src="images/SC1.png" alt="drawing" width="600"/></p>
+</figure>
+
+The user inputs the link to the video they wish to download. Then they click on browse, which
+opens a finder window that allows them to select a directory path to store the MP4 file. Lastly, they
+clicked on download. Once the download is finished a message window will open to notify them and display
+the path to the file
+
+### Table of Contents
+
+1. [Getting Started](#getting-started)
+2. [Usage](#usage)
+3. [Error Handling](#error-handling)
+4. [Future Plans](#future-plans)
+5. [Download](#download)
+
+## Getting Started
+
+Clone down this repository. You will need <a href="https://www.python.org/downloads/">Python</a>
+and <a href="https://git-scm.com/">Git</a> installed globally on your machine.
+
+## Usage
+
+Travel to root directory
+<p>Create virtual environment:</p>
+
+```bash
+$ python3 -m venv <env_name>
+```
+
+Activate environment:
+
+```bash
+$ source <env_name>/bin/activate
+```
+
+Install packages:
+
+```bash
+$ pip install -r requirements.txt
+```
+
+If you wish to use the GUI:
+
+```bash
+$ python3 main.py
+```
+
+Run the project with:
+
+```bash
+$ python3 main.py <youtube video url> <output directory path> <output name> (optional)
+```
+
+When done, run:
+
+```bash
+$ deactivate
+```
+
+## Error Handling
+
+<figure>
+    <p align="center">
+        <img src="images/SC2.png" alt="drawing" width="400"/>
+        <img src="images/SC3.png" alt="drawing" width="400"/>
+    </p>
+</figure>
+
+When an invalid url is entered a message window will open to notify the user. In addition to invalid URLs,
+a valid URL may not belong to a YouTube video and a message is also sent in that instance.
+
+<img src="images/terminalError1.png" alt="drawing" width=600/>
+<img src="images/terminalError2.png" alt="drawing" width=600/>
+
+When the YT_Downloader is used through the terminal, messages are outputted to notify the user when the url is invalid,
+or path of output directory is invalid
+
+## Download
+
+[Apple Silicon](https://github.com/HansChaudry/YT_Downloader/raw/readme/YT_Downloader_Apple_Silicon.dmg)
+
+## Future Plans
+
+- Option to choose video quality
+- Allow user to download as an mp3
+
+### Thank You For Visiting `!!!`
+
+</body>

@@ -7,20 +7,6 @@ import sys
 import os
 
 
-def verify_cli_args(arguments: tuple):
-    if not validators.url(arguments[0]):
-        print("The URL entered is invalid")
-        print("Arguments format: <video url> <directory_path> <output file name>")
-        return False
-
-    if not os.path.isdir(arguments[1]):
-        print("The directory entered is invalid")
-        print("Expected arguments: <video url> <directory_path> <output file name>(optional)")
-        return False
-
-    return True
-
-
 def get_quality_stream(link: YouTube):
     resolutions = ["1080p", "720p", "480", "360p", "240p"]
     for resolution in resolutions:
@@ -28,7 +14,6 @@ def get_quality_stream(link: YouTube):
         if len(streams) != 0:
             return streams.first()
     return None
-
 
 class App(customtkinter.CTk):
     def __init__(self):
@@ -85,48 +70,28 @@ class App(customtkinter.CTk):
         self.download_path.set(download_dir)
 
     def download_video(self, *args):
-        if self is None:
-            if verify_cli_args(arguments=args):
-                try:
-                    get_video = YouTube(args[0])
-                    get_stream = get_quality_stream(get_video)
-                    if args[2] is not None:
-                        video_name = args[2] if "mp4" in args[2] else args[2] + ".mp4"
-                        get_stream.download(output_path=args[1] if args[1] != "." else sys.path[0], filename=video_name)
-                    else:
-                        get_stream.download(output_path=args[1])
-                    print("Video was successfully downloaded. The file can be found at " + args[1] if args[1] != "."
-                          else sys.path[0])
-                except:
-                    print("Invalid URL entered. Please make sure that it is a URL to a YouTube video, not a playlist, "
-                          "channel or YouTube homepage ")
-            pass
+        vid_link = self.link_entry.get()
+
+        if not validators.url(vid_link):
+            tkinter.messagebox.showinfo(
+                title=None, message="The URL entered is invalid")
         else:
-            vid_link = self.link_entry.get()
+            folder = self.download_path.get()
+            try:
+                get_video = YouTube(vid_link)
+                get_stream = get_quality_stream(get_video)
+                get_stream.download(folder)
+                tkinter.messagebox.showinfo(title=None,
+                                            message=("Video was successfully downloaded. The file can be found"
+                                                     " at " + self.download_path.get()))
 
-            if not validators.url(vid_link):
-                tkinter.messagebox.showinfo(
-                    title=None, message="The URL entered is invalid")
-            else:
-                folder = self.download_path.get()
-                try:
-                    get_video = YouTube(vid_link)
-                    get_stream = get_quality_stream(get_video)
-                    get_stream.download(folder)
-                    tkinter.messagebox.showinfo(title=None,
-                                                message=("Video was successfully downloaded. The file can be found"
-                                                         " at " + self.download_path.get()))
-
-                except:
-                    tkinter.messagebox.showinfo(title=None,
-                                                message=("Invalid URL entered. Please make sure that it is a "
-                                                         "URL to a YouTube video, not a playlist, channel, "
-                                                         "or YouTube homepage "))
+            except:
+                tkinter.messagebox.showinfo(title=None,
+                                            message=("Invalid URL entered. Please make sure that it is a "
+                                                     "URL to a YouTube video, not a playlist, channel, "
+                                                     "or YouTube homepage "))
 
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        App.download_video(None, *sys.argv[1:])
-    else:
-        app = App()
-        app.mainloop()
+    app = App()
+    app.mainloop()
