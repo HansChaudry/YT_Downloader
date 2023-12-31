@@ -8,7 +8,7 @@ setup(
     version = '0.0.5',
     author = 'Hans Chaudry',
     author_email = 'hanschaudry@outlook.com',
-    license = '<the license you chose>',
+    license = 'MIT License',
     description = 'CLI tool that allows yu to download a youtube video to a choosen directory',
     long_description = long_description,
     long_description_content_type = "text/markdown",
