@@ -30,6 +30,24 @@ def get_quality_stream(link: YouTube):
     return None
 
 
+def download_video(*args):
+    if verify_cli_args(arguments=args):
+        try:
+            get_video = YouTube(args[0])
+            get_stream = get_quality_stream(get_video)
+            if args[2] is not None:
+                video_name = args[2] if "mp4" in args[2] else args[2] + ".mp4"
+                get_stream.download(output_path=args[1] if args[1] != "." else sys.path[0], filename=video_name)
+            else:
+                get_stream.download(output_path=args[1])
+            print("Video was successfully downloaded. The file can be found at " + args[1] if args[1] != "."
+                  else sys.path[0])
+        except:
+            print("Invalid URL entered. Please make sure that it is a URL to a YouTube video, not a playlist, "
+                  "channel or YouTube homepage ")
+    pass
+
+
 class App(customtkinter.CTk):
     def __init__(self):
         super().__init__()
@@ -125,8 +143,10 @@ class App(customtkinter.CTk):
 
 
 if __name__ == "__main__":
+
     if len(sys.argv) > 1:
-        App.download_video(None, *sys.argv[1:])
+        download_video(None, *sys.argv[1:])
     else:
-        app = App()
-        app.mainloop()
+        print("Expected arguments: <video url> <directory_path> <output file name>(optional)")
+        # app = App()
+        # app.mainloop()
