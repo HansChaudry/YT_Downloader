@@ -2,4 +2,3 @@ click==8.1.7
 pytube==15.0.0
 validators==0.22.0
 YT-Downloader==0.0.1
-

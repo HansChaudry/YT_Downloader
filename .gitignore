@@ -5,3 +5,5 @@ update.py
 .idea
 dist
 build
+.pytest_cache
+__pycache__
